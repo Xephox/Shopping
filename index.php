@@ -40,4 +40,4 @@ session_start();
     echo "<h1>Welcome to ".$shop_name."</h1>";
     ?>
 
-    <a href="shop.php"><button>To shop</button></a>
+    <a href="shop.php?new=true"><button>New shop</button></a>
