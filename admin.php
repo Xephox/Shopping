@@ -1,12 +1,15 @@
 <?php 
+/*Program grabs code for the authentication to protect against those who havnt logged in and grabs the items array.*/
 require_once("auth.php");
 require_once("items.php");
 
+/*Checks if the shopname form has been set, if it is it will assign the entered shop name to its php variable. 
+The program then writes the shop name variable to the shopname php file via export. */
 if (isset($_POST["shop_name"])) {
     $shop_name = $_POST["shop_name"];
     file_put_contents('shopname.php', '<?php $shop_name = '.var_export($shop_name, true).';');
 } 
-
+/*Checks if new item form has been set aswell as its price.*/
 if (isset($_POST["new_item"]) && isset($_POST["new_price"])) {
     $items[rand()] = [
         "item_name" => $_POST["new_item"],
