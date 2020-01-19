@@ -1,14 +1,35 @@
+<?php
+require_once("databaselink.php");
+?>
 <head>
     <title>Question Form</title>
 </head>
 <body>
     <h1>Thank You</h1>
     <p>Here are the items you have purchased:</p>
-    <ol>
+    <ul>
     <?php 
-    foreach ($item_purchased[$_SESSION['shop_id']] as $question_id => $awnser) {
-        echo "<li><em>".$questions[$question_id].":</em> ".$awnser."</li>";
+
+    $items = $conn->query("SELECT name, count(*) as quantity FROM `purchased_items` GROUP BY name")->fetchAll();
+    if (count($items) == 0) {
+        echo "You havn't purchased any items.";
+    } else {
+        foreach ($items as $item) {
+        echo "<li>".$item["quantity"]." ".$item["name"]."</li>"; 
+    }
     }
     ?>
-    </ol>
+    </ul>
+    <p>Your total to pay is:
+
+    <?php
+    $total = $conn->query("SELECT sum(price) as total FROM `purchased_items` INNER JOIN `items` ON items.name = purchased_items.name")->fetch();
+    if ($total["total"] == NULL) {
+        echo "£0";
+    } else{
+        echo "£".$total["total"];
+    }
+    ?>
 </body>
+
+<a href="resetshop.php"><button>End shop</button></a>

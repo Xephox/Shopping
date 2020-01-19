@@ -1,1 +1,1 @@
-<?php $shop_name = '';
+<?php $shop_name = 'lewlew\'s';
