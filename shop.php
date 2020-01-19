@@ -1,8 +1,7 @@
 <?php
 
 require_once("shopname.php");
-require_once("items.php");
-require_once("purchased.php");
+require_once("databaselink.php");
 echo "<h1>$shop_name</h1>";
 
 session_start();

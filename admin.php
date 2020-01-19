@@ -1,21 +1,18 @@
 <?php 
-/*Program grabs code for the authentication to protect against those who havnt logged in and grabs the items array.*/
-require_once("auth.php");
-require_once("items.php");
 
-/*Checks if the shopname form has been set, if it is it will assign the entered shop name to its php variable. 
-The program then writes the shop name variable to the shopname php file via export. */
+require_once("auth.php");
+require_once("databaselink.php");
+
+
 if (isset($_POST["shop_name"])) {
     $shop_name = $_POST["shop_name"];
     file_put_contents('shopname.php', '<?php $shop_name = '.var_export($shop_name, true).';');
 } 
-/*Checks if new item form has been set aswell as its price.*/
+
 if (isset($_POST["new_item"]) && isset($_POST["new_price"])) {
-    $items[rand()] = [
-        "item_name" => $_POST["new_item"],
-        "item_price" => intval($_POST["new_price"]),
-    ];
-    file_put_contents('items.php', '<?php $items = '.var_export($items, true).';');
+    $sql = "INSERT INTO items (name, price)
+    VALUES ('$_POST[new_item]', '$_POST[new_price]')";
+    $conn->exec($sql);
 }
 
 ?>
@@ -41,11 +38,16 @@ if (isset($_POST["new_item"]) && isset($_POST["new_price"])) {
     <label for="new_price">Type price:</label><input type=number name="new_price" step=".01">
     <a href="admin.php"><button>Add item</button></a>
 
-    <?php
+<?php
 
-    foreach ($items as $item) {
-        echo "<li>".$item["item_name"]." £".number_format($item["item_price"], 2, '.', '')."</li>";
-    }
-    ?>
+$items = $conn->query("SELECT * FROM items")->fetchAll();
+    
+foreach ($items as $item) {
+    echo "<li>".$item["name"]." £".$item["price"]."</li>"; 
+}
+
+?>
 
 </form>
+
+<a href="removeitems.php" onclick="return confirm('Are you sure you want to delete all items?');"><button>Remove all items</button></a>

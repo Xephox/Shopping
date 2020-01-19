@@ -11,8 +11,6 @@ session_start();
 
 <h2>Admin Login</h2>
 <?php
-/*Checks if login form is set before then assigning the inputed user name and password to their assigned php variables. 
-The program then checks that they both meet their required string value beofore setting the session to true and linking them to the admin page.*/
     if(isset($_POST['login'])){
         $username = $_POST['username']; $password = $_POST['password'];
         if($username === 'admin' && $password === 'password'){
@@ -23,8 +21,6 @@ The program then checks that they both meet their required string value beofore 
         }
 
     }
-    /*Checks if login is not set, if so it will display the form to the user to fill out and submit, 
-    however if it is set then the program will not display the form and will instead inform the user that they are already logged in and give them a button to the admin area.*/
     if (!isset($_SESSION['login'])): ?>
 
     <form method="post">
@@ -41,7 +37,6 @@ The program then checks that they both meet their required string value beofore 
     <?php endif; ?>
 
     <?php
-    /*Displays the shop name to the user and gives the user a button that links to a fresh shop.*/
     echo "<h1>Welcome to ".$shop_name."</h1>";
     ?>
 
