@@ -18,6 +18,10 @@ if (isset($_POST["submit"])) {
 
 ?>
 
+<head>
+    <link href="style.css" rel="stylesheet">
+</head>
+
 <form method="post">
 <?php
 

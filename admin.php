@@ -17,7 +17,11 @@ if (isset($_POST["new_item"]) && isset($_POST["new_price"])) {
 
 ?>
 
-<h1>Admin Area<h1>
+<head>
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<h1>Admin Area</h1>
 
     <a href="logout.php"><button>Log out</button></a>
     <a href="index.php"><button>Home</button></a>

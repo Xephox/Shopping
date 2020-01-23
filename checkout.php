@@ -2,7 +2,7 @@
 require_once("databaselink.php");
 ?>
 <head>
-    <title>Question Form</title>
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
     <h1>Thank You</h1>
