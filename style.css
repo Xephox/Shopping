@@ -1,3 +1,49 @@
+.button {
+    background-color: rgb(255, 255, 255);
+    padding: 2px 6px 2px 6px;
+    display:inline-block;
+    border: 1px solid;
+    margin: 20px 20px 20px 20px;
+    border-radius: 1px;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family: arial;
+    font-weight: 300px;
+    color: #FFFFFF;
+    text-align: center;
+    transition: all 0.2s;
+    height: 50px;
+    width: 100px;   
+}
+
+.button:hover{
+    color:#ffffff;
+    background-color:rgb(1, 0, 59);
+}
+
+.submit {
+    background-color: rgb(255, 255, 255);
+    padding: 2px 6px 2px 6px;
+    display:inline-block;
+    border: 1px solid;
+    margin: 20px 20px 20px 20px;
+    border-radius: 1px;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family: arial;
+    font-weight: 300px;
+    color: #FFFFFF;
+    text-align: center;
+    transition: all 0.2s;
+    height: 50px;
+    width: 100px;   
+}
+
+.submit:hover{
+    color:#ffffff;
+    background-color:rgb(1, 0, 59);
+}
+
 .admin_login {
     font-family: arial;
     font-size: 40px;
@@ -20,11 +66,28 @@
 }
 
 .loginbutton {
+    background-color: rgb(209, 209, 209);
+    padding: 2px 6px 2px 6px;
+    display: block;
+    border: 1px solid;
+    border-radius: 1px;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family: arial;
+    font-weight: 300px;
+    color: #FFFFFF;
+    text-align: center;
+    transition: all 0.2s;
     margin-top: 20px;
     margin-left: 70px;
     height: 50px;
     width: 100px;
 } 
+
+.loginbutton:hover{
+    color:#ffffff;
+    background-color:rgb(1, 0, 59);
+}
 
 h1 {
     font-family: arial;
@@ -47,6 +110,6 @@ body {
     transform: translate(-50%, -50%);
     box-sizing: border;  
     border-style: solid;  
-    border-color: rgb(0, 53, 102);
+    border-color: rgb(1, 0, 58);
     border-width: 10px;    
 }

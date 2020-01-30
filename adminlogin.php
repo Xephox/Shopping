@@ -1,29 +1,23 @@
-<?php
-session_start();
-if(isset($_POST['login'])){
-    if($_POST['rememberme'] === true){
-        $username = $_POST['username']; $password = $_POST['password'];
-        if($username === 'admin' && $password === 'password'){
-            $_SESSION['login'] = true;
-            header('Location: admin.php');
-        } else {
-            echo "Username and Password do not match.";
-        }
-    } else {
-        if($_POST['username'] === 'admin' && $_POST['password'] === 'password'){
-            $_SESSION['login'] = true;
-            header('Location: admin.php');
-        } else {
-            echo "Username and Password do not match.";
-        }    
-    }
-}
-if (!isset($_SESSION['login'])): 
-?>
-
 <head>
     <link href="style.css" rel="stylesheet">
 </head>
+
+<?php
+session_start();
+if(isset($_POST['login'])){
+    $username = $_POST['username']; $password = $_POST['password'];
+    if($username === 'admin' && $password === 'password'){
+        $_SESSION['login'] = true;
+        header('Location: admin.php');
+    } else {
+        echo "Username and Password do not match.";
+    }
+
+} 
+
+if (!isset($_SESSION['login'])): 
+?>
+
 <body>
     <div class="loginbox">
         <h2 class="admin_login">Admin Login</h2>
@@ -39,22 +33,9 @@ if (!isset($_SESSION['login'])):
 <?php else: ?>
 
     <p>You're already logged in.</p>
-    <a href="admin.php"><button>To admin</button></a>
+    <a href="admin.php"><button type="button" class="button">To admin</button></a>
 
 <?php endif; ?>
 
 
 
-<!--
-
-if(isset($_POST['login'])){
-    $username = $_POST['username']; $password = $_POST['password'];
-    if($username === 'admin' && $password === 'password'){
-        $_SESSION['login'] = true;
-        header('Location: admin.php');
-    } else {
-        echo "Username and Password do not match.";
-    }
-
-} 
--->

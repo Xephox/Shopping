@@ -1,8 +1,9 @@
 <?php
-
-require_once("shopname.php");
 require_once("databaselink.php");
-echo "<h1>$shop_name</h1>";
+
+$shop_name = $conn->query("SELECT name FROM shop_name ORDER BY id DESC LIMIT 1")->fetch();
+
+echo "<h1>$shop_name[0]</h1>";
 
 session_start();
 if (!isset($_SESSION["shop_id"]) || isset($_GET["new"])) {
@@ -33,7 +34,7 @@ foreach ($items as $item) {
 ?>
 
 </form>
-<a href="checkout.php"><button>Checkout</button></a>
-<a href="resetshop.php"><button>Cancel shop</button></a>
+<a href="checkout.php"><button type="button" class="button">Checkout</button></a>
+<a href="resetshop.php"><button type="button" class="button">Cancel shop</button></a>
 
 

@@ -32,4 +32,4 @@ require_once("databaselink.php");
     ?>
 </body>
 
-<a href="resetshop.php"><button>End shop</button></a>
+<a href="resetshop.php"><button type="button" class="button">End shop</button></a>
